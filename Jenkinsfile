@@ -6,7 +6,7 @@ node {
             checkout([$class: 'GitSCM',
             branches: [[name: '*/main']],
             extensions: [],
-            userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/abhisekB9/register-service.git']]])
+            userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/abhisekB9/search-service.git']]])
     }
     stage('Build') {
         sh "${mvnCMD} clean install"
