@@ -20,7 +20,7 @@ spec:
 #          - name: kafka.topic
 #            value: t.online.hotel
           - name: server.port
-            value: ' 8081'
+            value: ' 8086'
           - name: spring.datasource.driverClassName
             value: org.h2.Driver
           - name: spring.datasource.password
