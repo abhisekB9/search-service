@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-service
+spec:
+  selector:
+    matchLabels:
+      app: search-service
+  template:
+    metadata:
+      labels:
+        app: search-service
+    spec:
+      containers:
+      - name: search-service
+        image: IMAGE_URL/v1-search
+        ports:
+        - containerPort: 8086
+        env:
+#          - name: kafka.topic
+#            value: t.online.hotel
+          - name: server.port
+            value: ' 8081'
+          - name: spring.datasource.driverClassName
+            value: org.h2.Driver
+          - name: spring.datasource.password
+            value: sa
+          - name: spring.datasource.url
+            value: jdbc:h2:mem:testdb
+          - name: spring.datasource.username
+            value: sa
+          - name: spring.h2.console.enabled
+            value: "true"
+          - name: spring.h2.console.path
+            value: /h2-ui
+          - name: spring.jpa.hibernate.ddl-auto
+            value: ' update'
+          - name: spring.jpa.properties.hibernate.dialect
+            value: org.hibernate.dialect.H2Dialect
+          - name: spring.jpa.show-sql
+            value: "true"
+#          - name: spring.kafka.bootstrap-servers
+#            value: kafka:9092
+#          - name: spring.kafka.consumer.group-id
+#            value: ' "default"'
+#          - name: spring.kafka.producer.key-serializer
+#            value: org.apache.kafka.common.serialization.StringSerializer
+#          - name: spring.kafka.producer.value-serializer
+#            value: org.apache.kafka.common.serialization.StringSerializer
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-service-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: search-service
+  ports:
+  - port: 80
+    targetPort: 8086
+
