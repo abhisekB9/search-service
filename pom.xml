@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.6</version>
+		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.online.travel</groupId>
@@ -14,7 +14,7 @@
 	<name>search</name>
 	<description>Service to search flights/hotels</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
 		<jacoco.version>0.8.8</jacoco.version>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
