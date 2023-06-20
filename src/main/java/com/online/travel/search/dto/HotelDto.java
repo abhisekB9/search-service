@@ -20,7 +20,5 @@ public class HotelDto {
     private String hotelDescription;
 
     private BigDecimal hotelPrice;
-
-    // More fields and objects will be added
 }
 

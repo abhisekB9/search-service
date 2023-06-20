@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/hotel")
+@RequestMapping("/hotel/search")
 public class SearchHotelController {
 
     @Autowired
     private SearchHotelService service;
 
-    @PostMapping("/search")
+    @PostMapping
     public HotelDto searchHotel(@RequestBody HotelDto hotel){
         return service.searchHotel(hotel);
     }
